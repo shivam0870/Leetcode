@@ -15,10 +15,12 @@ public:
                 i++; j--;
             }
             
-          if(!flag1)
-              i++;
-            if(!flag2)
+        else if(!flag1){
+            i++;
+        }
+            else {
                 j--;
+            }
             
         }
         return s;
