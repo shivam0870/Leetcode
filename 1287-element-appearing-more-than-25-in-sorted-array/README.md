@@ -3,15 +3,15 @@
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 1:</strong></p>
 
-<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [1,2,2,6,6,6,6,7,10]
+<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [1,2,2,6,6,6,6,7,10]
 <strong style="user-select: auto;">Output:</strong> 6
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
 
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 2:</strong></p>
 
-<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [1,1]
+<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [1,1]
 <strong style="user-select: auto;">Output:</strong> 1
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
 
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Constraints:</strong></p>
