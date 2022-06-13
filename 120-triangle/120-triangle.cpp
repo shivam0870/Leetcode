@@ -1,14 +1,17 @@
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
-    
+      int len = triangle.size();
+        vector<int> vec = triangle[len-1];
         
-          vector<int> mini = triangle[triangle.size()-1];
-        for ( int i = triangle.size()-2 ; i>= 0 ; i-- )
-            for ( int j = 0; j < triangle[i].size() ;  j++ )
-                mini[j] = triangle[i][j] + min(mini[j],mini[j+1]);
-        return mini[0];
-        
+        for(int i=len-2; i>=0; i--){
+            for(int j=0; j<triangle[i].size(); j++){
+                vec[j] = triangle[i][j] + min(vec[j] , vec[j+1]);
+                
+            }
+        }
+        return vec[0];
+       
         
     }
 };
