@@ -35,7 +35,13 @@ int chocolates(int arr[], int n)
       
     // return *min_element(arr , arr+n);
     
-  sort(arr,arr+n);
-  return arr[0];
-    
+  int min,i;
+ min = arr[0];
+ for(int i=0; i<n; i++){
+     if(arr[i]<min){
+         min = arr[i];
+     }
+ }
+ return min;
+  
 }
