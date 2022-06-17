@@ -1,7 +1,7 @@
 class CustomStack {
 public:
      int max;
-    vector<int> v;
+    vector<int>  v;
     CustomStack(int maxSize) {
         max=maxSize;  
     }
