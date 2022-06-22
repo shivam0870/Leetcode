@@ -1,21 +1,21 @@
 class Solution {
 public:
     vector<int> minSubsequence(vector<int>& nums) {
-       vector<int> ans;
+      vector<int> ans;
         int sum = 0;
         int len = nums.size();
         for(int i=0; i<len; i++){
             sum+=nums[i];
         }
-        int val = 0;
-        // sort(nums.begin() , nums.end() , greater<>()); //Decreasing
-        sort(nums.rbegin() , nums.rend());
+        int x = 0;
+        sort(nums.begin() , nums.end() , greater<>()); //Decreasing order
+        
         for(int i=0; i<len; i++){
-            val+=nums[i];
+            x = x + nums[i];
             ans.push_back(nums[i]);
-            if(val > (sum - val))
+            if(x > (sum - x))
                 break;
         }
-        return ans;
+          return ans;
     }
 };
