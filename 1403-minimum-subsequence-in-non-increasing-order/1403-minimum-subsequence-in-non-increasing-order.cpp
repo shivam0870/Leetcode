@@ -8,8 +8,8 @@ public:
             sum+=nums[i];
         }
         int x = 0;
-        sort(nums.begin() , nums.end() , greater<>()); //Decreasing order
-        
+        // sort(nums.begin() , nums.end() , greater<>()); //Decreasing order
+        sort(nums.rbegin() , nums.rend());
         for(int i=0; i<len; i++){
             x = x + nums[i];
             ans.push_back(nums[i]);
