@@ -18,5 +18,8 @@ public:
                 prod = 1;
         }
         return maxval;
+        
+return maxval;
+        
     }
 };
