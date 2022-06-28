@@ -11,17 +11,17 @@
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 1:</strong></p>
 
-<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> num1 = "1+1i", num2 = "1+1i"
+<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> num1 = "1+1i", num2 = "1+1i"
 <strong style="user-select: auto;">Output:</strong> "0+2i"
 <strong style="user-select: auto;">Explanation:</strong> (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
+</pre>
 
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 2:</strong></p>
 
-<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> num1 = "1+-1i", num2 = "1+-1i"
+<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> num1 = "1+-1i", num2 = "1+-1i"
 <strong style="user-select: auto;">Output:</strong> "0+-2i"
 <strong style="user-select: auto;">Explanation:</strong> (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
+</pre>
 
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Constraints:</strong></p>
