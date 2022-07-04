@@ -15,21 +15,21 @@
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 1:</strong></p>
 
-<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,1,0]
+<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,1,0]
 <strong style="user-select: auto;">Output:</strong> 1
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
+</pre>
 
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 2:</strong></p>
 
-<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,2,1,0]
+<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,2,1,0]
 <strong style="user-select: auto;">Output:</strong> 1
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
+</pre>
 
 <p style="user-select: auto;"><strong style="user-select: auto;">Example 3:</strong></p>
 
-<pre style="position: relative; user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,10,5,2]
+<pre style="user-select: auto;"><strong style="user-select: auto;">Input:</strong> arr = [0,10,5,2]
 <strong style="user-select: auto;">Output:</strong> 1
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
+</pre>
 
 <p style="user-select: auto;">&nbsp;</p>
 <p style="user-select: auto;"><strong style="user-select: auto;">Constraints:</strong></p>
