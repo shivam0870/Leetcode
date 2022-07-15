@@ -11,8 +11,7 @@ public:
             for(int j=0; j<size; j++){
                 vector<int> temp = ans[j];
                 temp.push_back(nums[i]);
-                // vector<int> temp;
-                // temp.push_back(nums[i]);
+               
                 ans.push_back(temp);
             }
         }
