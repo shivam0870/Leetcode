@@ -6,7 +6,7 @@ public:
         unordered_set<string>s;
         int i=0;
         while(i<n){
-            if(isdigit(word[i]) == false){
+            if(!isdigit(word[i])){
                 i++;
                 continue;
             }
