@@ -1,15 +1,54 @@
 class Solution {
 public:
     vector<string> commonChars(vector<string>& A) {
-      vector<int> cnt(26, INT_MAX);
-  vector<string> res;
-  for (auto s : A) {
-    vector<int> cnt1(26, 0);
-    for (auto c : s) ++cnt1[c - 'a'];
-    for (auto i = 0; i < 26; ++i) cnt[i] = min(cnt[i], cnt1[i]);
-  }
-  for (auto i = 0; i < 26; ++i)
-    for (auto j = 0; j < cnt[i]; ++j) res.push_back(string(1, i + 'a'));
-  return res;
+ 
+        vector<int> hash1(26,0);
+        vector<int> hash2(26,0);
+        
+        for(auto it : A[0]){
+            hash1[it - 'a']++;
+        }
+        
+        for(int i=0; i<A.size(); i++){
+            for(auto ch : A[i]){
+                hash2[ch-'a']++;
+            }
+        
+        
+        for(int i=0; i<26;i++){
+            hash1[i] = min(hash1[i] , hash2[i]);
+            hash2[i] = 0;
+        }
+        
+        }
+        
+        vector<string> ans;
+        
+        for(int i=0; i<26; i++)
+            if(hash1[i] > 0){
+                int cnt = hash1[i];
+                while(cnt--){
+                    char x = i + 'a';
+                    string str;
+                    str = x;
+                    ans.push_back(str);
+                }
+                }
+        return ans;
+        
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
