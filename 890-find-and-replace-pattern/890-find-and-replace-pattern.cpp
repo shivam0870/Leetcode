@@ -7,7 +7,7 @@ public:
         unordered_map<int,int> mpp;
         for(int i=0; i<pat.size(); i++){
             if(mpp.find(pat[i]) == mpp.end()){
-                mpp[pat[i]] = 'a'+i;
+                mpp[pat[i]] = 'a'+j+9;
                 j++;
             }
             ans.push_back(mpp[pat[i]]);
