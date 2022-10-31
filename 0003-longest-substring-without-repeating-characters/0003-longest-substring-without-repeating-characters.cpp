@@ -13,7 +13,8 @@ public:
 			}
 			else
 			{
-				set.erase(s[i++]); 
+				set.erase(s[i]);
+                i++;
 			
 			}
 		}
