@@ -9,7 +9,7 @@ class Solution{
     //code
      sort(a.begin(),a.end());
       long long mindif=INT_MAX;
-      for(long long i=0;i<=n-m;++i)
+      for(long long i=0;i<n-m+1;++i)
       {
             mindif=min(mindif,a[i+m-1]-a[i]);
         }
