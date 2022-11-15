@@ -21,8 +21,8 @@ public:
 			}
 			else
 			{
-				set.erase(s[i]);
-                i++;
+				set.erase(s[i++]);
+                // i++;
 			
 			}
 		}
