@@ -4,7 +4,7 @@
 
 <p style="user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Example 1:</strong></span></p>
 
-<pre style="user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Input:</strong></span>
+<pre style="position: relative; user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Input:</strong></span>
 <span style="font-size: 18px; user-select: auto;">N = 6
 arr[] = 7 10 4 3 20 15
 K = 3</span>
@@ -12,18 +12,18 @@ K = 3</span>
 <strong style="user-select: auto;"><span style="font-size: 18px; user-select: auto;">Explanation :</span></strong>
 <span style="font-size: 18px; user-select: auto;">3rd smallest element in the given 
 array is 7.</span>
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
 
 <p style="user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Example 2:</strong></span></p>
 
-<pre style="user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Input:</strong></span>
+<pre style="position: relative; user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Input:</strong></span>
 <span style="font-size: 18px; user-select: auto;">N = 5
 arr[] = 7 10 4 20 15
 K = 4</span>
 <span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Output :</strong> 15</span>
 <strong style="user-select: auto;"><span style="font-size: 18px; user-select: auto;">Explanation :</span></strong>
 <span style="font-size: 18px; user-select: auto;">4th smallest element in the given 
-array is 15.</span></pre>
+array is 15.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper" style="user-select: auto;"></div></pre>
 
 <div style="user-select: auto;"><span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Your&nbsp;Task:</strong><br style="user-select: auto;">
 You don't have to read input or print anything. Your task is to complete the function&nbsp;<strong style="user-select: auto;">kthSmallest() </strong>which takes the array <strong style="user-select: auto;">arr[]</strong>, integers&nbsp;<strong style="user-select: auto;">l</strong>&nbsp;and&nbsp;<strong style="user-select: auto;">r</strong>&nbsp;denoting the <strong style="user-select: auto;">starting</strong> and <strong style="user-select: auto;">ending</strong> index of the array&nbsp;and an integer <strong style="user-select: auto;">K</strong>&nbsp;as input<strong style="user-select: auto;">&nbsp;</strong>and returns the <strong style="user-select: auto;">K<sup style="user-select: auto;">th</sup></strong> smallest element. </span></div>
