@@ -3,3 +3,14 @@ Complement of Base 10 Integer
         unsigned mask = ~0;
         while( mask & num ) mask = mask << 1;
         return ~num ^ mask;
+
+
+Power of Two
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n==0) return false;
+        while(n%2==0) n/=2;
+        return n==1;
+    }
+};
