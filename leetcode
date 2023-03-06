@@ -14,3 +14,28 @@ public:
         return n==1;
     }
 };
+
+
+Kth Missing Positive Number
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+      bool mp[2001]={0};
+
+        for(int i=0;i<arr.size();i++) 
+            mp[arr[i]]=1;
+
+        int indx=0, ans=1;
+
+        for(int i=1;i<2001;i++){
+            if(mp[i] == 0) indx++;
+            if(indx == k){
+                ans=i; break;
+            }
+        }
+
+        return ans;
+        
+    }
+};
