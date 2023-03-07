@@ -66,3 +66,30 @@ public:
         return maxx;
     }
 };
+
+
+Arithmetic Subarrays
+
+class Solution {
+public:
+
+bool isArithmetic(vector<int>& nums, int start, int end){
+  vector<int>v(nums.begin()+start , nums.begin()+end+1);
+    sort(v.begin(), v.end());
+    int diff = v[1] - v[0];
+    for(int i=2; i<v.size(); i++){
+        if((v[i] - v[i-1]) != diff)
+        return false;
+    }
+    return true;
+}
+
+    vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
+        vector<bool> ans;
+        for(int i=0; i<r.size(); i++){
+            bool var = isArithmetic(nums,l[i],r[i]);
+            ans.push_back(var);
+        }
+        return ans;
+    }
+};
