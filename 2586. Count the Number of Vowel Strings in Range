@@ -1,0 +1,23 @@
+class Solution {
+public:
+    
+     bool isvowel(char &ch){
+        return ch == 'a' || ch == 'e' || ch=='i' ||
+               ch == 'o' || ch == 'u';
+    }
+    
+    int vowelStrings(vector<string>& words, int left, int right) {
+         int cnt=0;
+        
+        for(int i=left; i<=right; i++){
+            //cur word
+            string w = words[i];
+            int n=w.size();
+            
+            //if cur word st. and ends with vowel
+            if(isvowel(w[0]) && isvowel(w[n-1])) cnt++;
+        }
+        
+        return cnt;
+    }
+};
