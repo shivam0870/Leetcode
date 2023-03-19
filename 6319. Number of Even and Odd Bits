@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string DecimalToBinary(int num)
+    {
+        string str;
+          while(num){
+          if(num & 1) str+='1';
+          else  str+='0';
+          num>>=1;
+        }   
+        return str;
+    }
+    vector<int> evenOddBit(int n) {
+        string s=DecimalToBinary(n);
+        int odd=0,even=0;
+        for(int i=0; i<s.size(); i++){
+            if(i%2!=0 and s[i]=='1') odd++;
+            if(i%2==0 and s[i]=='1') even++;
+        }
+        return {even,odd};
+    }
+};
