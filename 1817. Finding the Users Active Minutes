@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
+        int n=logs.size();
+        vector<int> ans(k,0);
+        set<pair<int, int>> st;
+        
+        // Storing logs in a set to remove all the duplicate values
+        for(int i=0;i<n;i++)
+            st.insert({logs[i][0], logs[i][1]});
+        
+        // Storing the ID of users and the number of minutes they were active in mp1
+        unordered_map<int, int> mp1;
+        for(auto i:st) mp1[i.first]++;
+        
+        // Storing the number of minutes and the number of users active for that time in mp2 (i.e. for 2 minutes, 2 users were active)
+        unordered_map<int, int> mp2;
+        for(auto i:mp1) mp2[i.second]++;
+        
+        // Storing the result in answer vector
+        for(auto i:mp2){
+            ans[(i.first)-1]=i.second;
+        }
+        
+        return ans;
+    }
+};
