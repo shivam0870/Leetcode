@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+        int i, j, x, y, count=0;
+        float dis;
+        vector<int> ans;
+        for(i=0 ; i<queries.size() ; i++)
+        {
+            for(j=0 ; j<points.size() ; j++)
+            {
+                x = pow((queries[i][0]-points[j][0]),2);
+                y = pow((queries[i][1]-points[j][1]),2);
+                dis = sqrt(x+y);
+                if(dis<=queries[i][2])
+                {
+                    count++;
+                }
+            }
+            ans.push_back(count);
+            count=0;
+        }
+        return ans;
+    }
+};
