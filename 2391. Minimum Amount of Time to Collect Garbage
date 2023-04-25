@@ -1,0 +1,84 @@
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) 
+    {
+        //we will make a vector of prefix vector
+         vector<int>prefix;
+         prefix.push_back(travel[0]);
+         for(int i=1;i<travel.size();i++)
+         {
+             prefix.push_back(prefix[i-1]+travel[i]);
+         }
+         //we need to know about the last position till we are
+         //getting the metal paper and glass garbage
+  
+         //the three index will keep the track of the last index 
+         //at which metal or glass paper garbage exist
+         int metal = INT_MIN;
+         int glass = INT_MIN;
+         int paper = INT_MIN;
+
+         //we will store 
+         vector<unordered_map<char,int>>v(garbage.size());
+
+         for(int i=0;i<garbage.size();i++)
+         {
+             string str = garbage[i];
+             for(int j=0;j<str.length();j++)
+             {
+                 if(str[j] == 'G') glass = max(glass,i);
+                 else if(str[j] == 'M') metal = max(metal,i);
+                 else if(str[j] == 'P') paper = max(paper ,i);
+
+                 v[i][str[j]]++;
+             }
+         }
+         //making the prefix sum 
+         int time = 0;
+
+         //making ans for the glass truck
+         if(glass == 0)
+         {
+             time = time + v[0]['G'];
+         }
+         else if(glass > 0)
+         {
+             time = time + prefix[glass-1];
+             for(int i=0;i<=glass;i++)
+             {
+                 time = time + v[i]['G'];
+             }
+         }
+        
+        //making the ans for the paper truck
+         if(paper == 0)
+         {
+             time = time + v[0]['P'];
+         }
+         else if(paper > 0)
+         {
+             time = time + prefix[paper-1];
+             for(int i=0;i<=paper;i++)
+             {
+                 time = time + v[i]['P'];
+             }
+         }
+
+         //making the ans for the metal truck
+         if(metal == 0)
+         {
+             time = time + v[0]['M'];
+         }
+         else if(metal > 0)
+         {
+             time = time + prefix[metal-1];
+             for(int i=0;i<=metal;i++)
+             {
+                 time = time + v[i]['M'];
+             }
+         }
+
+        return time;
+             
+    }
+};
