@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int distanceTraveled(int mt, int at) {
+        int distance =0;
+        while(mt>0)
+        {
+            distance+=10;
+            mt-=1;
+            if(distance%50==0&&at>0)
+            {
+                mt+=1;
+                at-=1;
+            }
+        }
+        return distance;
+    }
+};
