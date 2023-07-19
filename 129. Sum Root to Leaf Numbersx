@@ -1,0 +1,22 @@
+class Solution {
+public:
+   
+    void solve(TreeNode* root, string str, int &sum){
+        if(!root) return;
+        if(!root->left && !root->right){
+            str += to_string(root->val);
+            sum += stoi(str);
+            return;
+        }
+        str += to_string(root->val);
+
+        solve(root->left, str, sum);
+        solve(root->right, str, sum);
+    }
+    int sumNumbers(TreeNode* root) {
+         int sum = 0;
+        string str = "";
+        solve(root, str, sum);
+        return sum;
+    }
+};
