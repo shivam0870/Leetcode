@@ -16,6 +16,7 @@ public:
 				// ans = max(ans, j-i);
                p  = set.size();
                 ans = max(ans,p);
+				//Soluution outdated
                 
                 
 			}
