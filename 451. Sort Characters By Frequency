@@ -1,0 +1,14 @@
+class Solution {
+public:
+    string frequencySort(string s) {
+        std::unordered_map<char, int> charFreq;
+         for (char ch : s) {
+        charFreq[ch]++;
+    }
+     auto cmp = [&](const char& a, const char& b) {
+        return charFreq[a] > charFreq[b];
+    };
+    sort(s.begin(), s.end(), cmp); 
+    return s;
+    }
+};
