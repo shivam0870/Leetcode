@@ -1,0 +1,35 @@
+class Solution {
+    bool matchesPattern(const std::string& word, const std::string& pattern) {
+    if (word.length() != pattern.length())
+        return false;
+
+    std::unordered_map<char, char> patternMap;
+    std::unordered_map<char, char> wordMap;
+
+    for (int i = 0; i < word.length(); ++i) {
+        char w = word[i];
+        char p = pattern[i];
+        if (patternMap.find(p) == patternMap.end() && wordMap.find(w) == wordMap.end()) {
+            // If both mappings don't exist, create them
+            patternMap[p] = w;
+            wordMap[w] = p;
+        } else if (patternMap[p] != w || wordMap[w] != p) {
+            // If mappings already exist, check if they match
+            return false;
+        }
+    }
+
+    return true;
+}
+public:
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+         std::vector<std::string> result;
+         for (const std::string& word : words) {
+        if (matchesPattern(word, pattern)) {
+            result.push_back(word);
+        }
+    }
+
+    return result;
+    }
+};
