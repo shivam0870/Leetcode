@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> processQueries(vector<int>& q, int m) {
+        unordered_map<int,int> pos;
+        for(int i = 0;i<m;i++) pos[i+1] = i;
+
+        for(int i = 0;i<q.size();i++)
+        {
+            int tmp = q[i];
+            q[i] = pos[q[i]];
+            for(auto x : pos)
+            if(x.second<=q[i]) pos[x.first]+=1;
+            pos[tmp] = 0;
+        }
+        return q;
+    }
+};
