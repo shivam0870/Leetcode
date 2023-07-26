@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int maximum69Number (int num) {
+            string str1 =  to_string(num);    //convert int to string 
+    
+    for(int i=0;i<str1.length();i++)
+    {
+        if(str1[i]=='6' )           //check for letter '6'from left.
+        { str1[i]='9';
+        break;
+    }
+    }
+     
+     int m = stoi(str1);    //convert string to int
+    return m;
+}
+    
+};
