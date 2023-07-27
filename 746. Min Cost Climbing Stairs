@@ -1,0 +1,23 @@
+class Solution {
+public:
+
+int fun(int n, vector<int> &cost, vector<int> &dp){
+    if(n<=1)
+    return cost[n];
+    if(dp[n] != -1)
+    return dp[n];
+   
+   int oneStep = cost[n] + fun(n-1,cost,dp);
+  
+   int twoStep = cost[n] + fun(n-2,cost,dp);
+   
+  
+   return min(oneStep,twoStep); 
+}
+
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n= cost.size();
+         vector<int> dp(n, -1);
+        return min(fun(n-1,cost,dp) ,fun(n-2,cost,dp));
+    }
+};
