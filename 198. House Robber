@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+       int cnt1=0;
+       int cnt2=0;
+       for(int i=0; i<nums.size(); i++){
+           if(i%2==0){
+cnt1 = max(cnt1,cnt1+nums[i]);
+           }
+           else{
+cnt2 = max(cnt2,cnt2+nums[i]);
+           }
+       } 
+       return max(cnt1,cnt2);
+    }
+};
