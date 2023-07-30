@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int sum, n;
+    vector<int> nums;
+    vector<vector<char>> mem;
+
+    bool slv (int i=0, int j=0) {
+        if (j == sum / 2) return true; // If at any point you reach half the total sum this is a valid partition.
+        if (i == n or j > sum / 2) return false; // If you reached the end of the array or exceeded half the total array size, it is not possible to find a partition.
+        if (mem[i][j] != 0x02) return mem[i][j]; // If already computed return the memoized result.
+        return mem[i][j] = slv(i + 1, j + nums[i]) or slv(i + 1, j); // Solve subproblem and save for futuire use.
+    }
+
+    bool canPartition(vector<int>& nums) {
+        n = nums.size(), this->nums = nums;
+        sum = accumulate(nums.begin(), nums.end(), 0); // Compute the total array sum.
+        mem = vector<vector<char>>(n, vector<char>(sum / 2 + 1, 0x02));
+        if (sum % 2) return false; // If the sum is odd there is no possible way to partition the array equally.
+        return slv();
+    }
+};
