@@ -1,0 +1,37 @@
+class Solution {
+public:
+    bool isValid(vector<int>&nums, int& m , int low, int high)
+    {
+        int sum = 0;
+        for (int i = low; i <= high; i++) sum += nums[i];
+        return (sum >= m);
+    }
+  
+    bool solve(vector<int>&nums, vector<vector<int>>&dp, int &m, int low, int high)
+    {
+        if (low == high) return true;
+        if (!isValid(nums, m, low, high)) return false; 
+        if (dp[low][high] != -1) return (dp[low][high] == 1? true : false);
+        
+    
+        bool ans = false;
+        for (int cutIdx = low; cutIdx < high; cutIdx++)
+        {
+            bool left = solve(nums,dp, m, low, cutIdx);
+            bool right = solve(nums, dp, m, cutIdx + 1, high);
+            if (left && right) { ans=  true; break; }
+        }
+        return dp[low][high] = ans;
+    }
+   
+    bool canSplitArray(vector<int>& nums, int m) 
+    {
+        int n = nums.size();
+        if (nums.size() <= 2) return true;
+        
+        vector<vector<int>>dp(n, vector<int>(n, -1));
+        bool ans = solve(nums, dp, m, 0, nums.size() - 1);
+        return ans;
+    }
+   
+};
