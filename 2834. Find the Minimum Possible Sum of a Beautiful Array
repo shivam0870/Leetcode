@@ -1,0 +1,14 @@
+class Solution {
+public:
+    long long minimumPossibleSum(int n, int k) {
+          unordered_set<int> st;
+        long long ans = 0;
+        for (long long i = 1; st.size() < n; ++i) {
+            if (st.find(k - i) == st.end()) {
+                st.insert(i);
+                ans += i;
+            }
+        }
+        return ans;
+    }
+};
