@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int numberOfPoints(vector<vector<int>>& nums) {
+        vector<pair<int, int>> carPoints;
+        
+
+        for (const vector<int>& car : nums) {
+            carPoints.emplace_back(car[0], car[1]);
+        }
+        
+        sort(carPoints.begin(), carPoints.end());
+        
+        int covered = 0;
+        int currentEnd = INT_MIN; 
+        
+        for (const auto& point : carPoints) {
+            int start = point.first;
+            int end = point.second;
+            
+            if (start > currentEnd) {
+                covered += end - start+1 ;
+                currentEnd = end;
+            } else {
+                if (end > currentEnd) {
+                    covered += end - currentEnd;
+                    currentEnd = end;
+                }
+            }
+        }
+        
+        
+        return covered;
+    }
+};
