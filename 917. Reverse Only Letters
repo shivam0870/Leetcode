@@ -1,0 +1,35 @@
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        int start=0;
+        int end=s.length()-1;
+        while(start<end)
+        {
+            if(isvalid(s[start])==true and isvalid(s[end])==true){
+                swap(s[start],s[end]);
+                start++;
+                end--;
+            }
+            else if(isvalid(s[start])==true and isvalid(s[end])==false){
+                end--;
+            }
+            else if(isvalid(s[start])==false and isvalid(s[end])==true){
+                start++;
+            }
+            else{
+                start++;
+                end--;
+            }
+        }
+        return s;
+    }
+    bool isvalid(char c)
+    {
+       c=(char)tolower(c);
+       if(c>='a' and c<='z'){
+           return true;
+       }
+       return false;
+    }
+
+};
