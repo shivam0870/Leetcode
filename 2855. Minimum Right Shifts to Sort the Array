@@ -1,0 +1,41 @@
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int minimumRightShifts(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> sorted_nums = nums;
+        sort(sorted_nums.begin(), sorted_nums.end());
+        
+        for (int i = 0; i < n; i++) {
+            if (isSorted(nums, sorted_nums)) {
+                return i;
+            }
+            rightShift(nums);
+        }
+        
+        return -1;
+    }
+    
+   
+    bool isSorted(const vector<int>& nums, const vector<int>& sorted_nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != sorted_nums[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    void rightShift(vector<int>& nums) {
+        int n = nums.size();
+        int temp = nums[n - 1];
+        for (int i = n - 1; i > 0; i--) {
+            nums[i] = nums[i - 1];
+        }
+        nums[0] = temp;
+    }
+};
