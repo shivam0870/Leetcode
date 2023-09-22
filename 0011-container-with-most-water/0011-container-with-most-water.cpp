@@ -7,7 +7,7 @@ public:
         int h = min(height[i], height[j]);
         water = max(water, (j - i) * h);
         while (height[i] <= h && i < j) i++;
-        while (height[j] <= h && i < j) j--;
+        while (height[j] <= h && i < j) j++;
     }
     return water;   
     }
