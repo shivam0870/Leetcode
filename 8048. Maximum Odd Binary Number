@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string maximumOddBinaryNumber(string s) {
+        int count=0;
+        for(auto &it:s){
+            if(it=='1')
+               { count++;
+               it='0';}
+        }
+        if(count==0)
+            return s;
+        s[s.size()-1]='1';
+        count-=1;
+        int i=0;
+        while(count!=0){
+            s[i]='1';
+            i++;
+            count--;
+        }
+        return s;
+        
+    }
+};
