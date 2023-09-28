@@ -1,0 +1,56 @@
+class Solution {
+public:
+    map<string,unordered_map<string,int>> mpp ; // for table number -> food -> frequence of food 
+    set<string> st ; //stores food in sorted manner 
+    set<string> tno ; //stores table numbers in sorted manner
+    vector<vector<string>> ans ;
+    
+    // void print(){
+//         for(auto &x : mpp){
+//             cout << x.first << " --> " ;
+//             for(auto &y : mpp[x.first]){
+//                 cout << "( " << y.first << " " << y.second << ") " ;
+//             } cout << endl ;
+//         }
+        
+//     }
+    
+    vector<vector<string>> displayTable(vector<vector<string>>& orders) {
+        
+        for(auto &x : orders){
+            string table = x[1] , food = x[2] ;
+            ++mpp[table][food] ;
+            st.insert(food); tno.insert(table) ;
+        }
+        
+        // print() ;
+        
+        vector<string> temp  ;
+        for(auto &menu : st){
+            if(temp.empty()) temp.push_back("Table") ;
+            temp.push_back(menu);
+        }
+        ans.push_back(temp); // Record 1st row separately
+        
+        vector<vector<string>> aux ;
+        for(auto &x : tno){ //table number
+            vector<string> t ;
+            t.push_back(x);
+            for(auto &y : st){ // food 
+                t.push_back(to_string(mpp[x][y])) ;
+            }
+            aux.push_back(t) ;
+        }
+        
+        //sort according to least table number first 
+        sort(begin(aux),end(aux),[&](const vector<string> &v1 , const vector<string>&v2)->bool{
+            return stoi(v1[0]) < stoi(v2[0]) ;
+        }) ;
+        
+        //append aux to  original answer 
+        for(auto &x : aux) ans.push_back(x) ;
+        
+        return ans ;
+        
+    }
+};
