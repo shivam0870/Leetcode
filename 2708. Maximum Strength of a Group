@@ -1,0 +1,36 @@
+class Solution {
+public:
+    long long maxStrength(vector<int>& nums) {
+                 return getMaxStrength(nums, 0, 1, false);
+    }
+
+private:
+    long long getMaxStrength(vector<int>& nums, int start, long long product, bool nonZeroFlag) {
+        if (start == nums.size()) {
+            if (!nonZeroFlag) {
+                long long maxNegative = INT64_MIN;
+                for (int num : nums) {
+                    if (num < 0 && num > maxNegative) {
+                        maxNegative = num;
+                    }
+                }
+                return maxNegative;
+            }
+            return product;
+        }
+
+        // Check if product becomes zero
+        if (product == 0) {
+            return 0;
+        }
+
+        // Pick the current element and recursively calculate the strength
+        long long pick = getMaxStrength(nums, start + 1, product * nums[start], true);
+
+        // Not pick the current element and recursively calculate the strength
+        long long notPick = getMaxStrength(nums, start + 1, product, nonZeroFlag);
+
+        // Return the maximum strength between the two choices
+        return max(pick, notPick);
+    }
+};
