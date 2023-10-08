@@ -1,0 +1,19 @@
+class Solution {
+public:
+    
+    static bool comp(int a,int b){
+        return a>b;
+    }
+    int minProcessingTime(vector<int>& p, vector<int>& t) {
+        sort(t.begin(),t.end(),comp);
+        sort(p.begin(),p.end());
+        int i=0,k=0;
+        int ans=0;
+        while(i<t.size()){
+            ans=max(p[k]+t[i],ans);
+        i+=4;
+            k++;
+        }
+        return ans;
+    }
+};
