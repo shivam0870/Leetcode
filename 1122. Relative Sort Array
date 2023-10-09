@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        map<int,int> data;
+        for(auto x:arr1)
+        {
+            data[x]++;
+        }
+        vector<int> sol;
+        for(auto y:arr2)
+        {
+            if(data.find(y)!=data.end())
+            {
+                auto temp=data.find(y);
+                int count=temp->second;
+                sol.insert(sol.end(),count,y);
+                data.erase(temp);
+            }
+        }
+        for(auto x:data)
+        {
+          int count=x.second;
+          sol.insert(sol.end(),count,x.first);
+        }
+        return sol;
+    }
+};
