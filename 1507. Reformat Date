@@ -1,0 +1,75 @@
+class Solution {
+public:
+    vector<string>months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    string reformatDate(string date) {
+
+        vector<string>v;
+        int idx = 0;
+        while(idx < (date.length()))
+        {
+            string temp = "";
+            while(idx < date.length() and date[idx]!=' ')
+            {
+                temp.push_back(date[idx]);
+                idx++;
+            }
+            if(temp.length() > 0)
+            {
+                if(v.size() == 0)
+                {
+                    int req_len = temp.length() - 2;
+                    string s ="";
+                    for(int i=0;i<req_len;i++)
+                    {
+                        s.push_back(temp[i]);
+                    }
+                    v.push_back(s);
+                }
+                else if(v.size() > 0)
+                {
+                    v.push_back(temp);
+                }
+            }
+            idx++;
+        }
+        string ans ="";
+        for(int i=v.size()-1;i>=0;i--)
+        {
+            if(i == 1)
+            {
+                auto it = find(months.begin(),months.end(),v[i]);
+                int index = it - months.begin();
+                string s = (to_string(index+1));
+
+                if(s.length() == 1)
+                {
+                    s.push_back('0');
+                    reverse(s.begin(),s.end());
+                }
+
+                ans.append(s);
+            }
+            else if(i == 0)
+            {
+                 string s = v[i];
+                 if(s.length() == 1)
+                 {
+                     s.push_back('0');
+                     reverse(s.begin(),s.end());
+                 }
+
+                 ans.append(s);
+            }
+            else
+            {
+                ans.append(v[i]);
+            }
+
+            if(i > 0)
+            {
+                ans.push_back('-');
+            }
+        }
+        return ans;
+    }
+};
