@@ -1,0 +1,31 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> lastVisitedIntegers(vector<string>& words) {
+        vector<int> result;
+        vector<int> nums;
+        int consecutivePrev = 0;
+
+        for (int i = 0; i < words.size(); i++) {
+            if (words[i] == "prev") {
+                if (consecutivePrev < nums.size()) {
+                    result.push_back(nums[nums.size() - 1 - consecutivePrev]);
+                } else {
+                    result.push_back(-1);
+                }
+                consecutivePrev++;
+            } else {
+                int num = stoi(words[i]);
+                nums.push_back(num);
+                consecutivePrev = 0;
+                result.push_back(num);
+            }
+        }
+
+        return result;
+    }
+};
