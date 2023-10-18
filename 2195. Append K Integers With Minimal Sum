@@ -1,0 +1,48 @@
+class Solution
+{
+public:
+    long long minimalKSum(vector<int> &nums, int k)
+    {
+        long long sum = 0, num = 0;
+        int ind = 0;
+        sort(nums.begin(), nums.end());
+
+        while (k > 0 && ind < nums.size())
+        {
+
+            long long n = nums[ind] - num - 1;
+            if (n >= 0)
+            {
+                long long a;
+                if (k >= n)  // if k>=n we will take whole n
+                {
+                    k = k - n;
+                    a = nums[ind] - 1;
+                }
+
+                else if (k < n)  // if k<n , then we only take required value of k
+                {
+                    a = num + k;
+                    k = 0;
+                }
+
+                if (a >= num) 
+                {
+                    // here we want sum of elements in between a and num
+                    sum += ((a * (a + 1)) / 2) - ((num * (num + 1)) / 2);
+                }
+            }
+
+            num = nums[ind];
+            ind++;
+        }
+
+        // this will be useful when we have traversed whole array
+        long long a = k + nums.back();
+        long long last = nums.back();
+
+        sum += ((a * (a + 1)) / 2) - ((last * (last + 1)) / 2);
+
+        return sum;
+    }
+};
