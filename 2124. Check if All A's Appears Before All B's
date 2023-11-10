@@ -1,0 +1,11 @@
+class Solution {
+public:
+    bool checkString(string s) {
+        int len = s.size();
+        string str = s;
+        sort(str.begin(),str.end());
+        if(str == s)
+       return true;
+       return false;
+    }
+};
