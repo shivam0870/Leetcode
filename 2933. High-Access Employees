@@ -1,0 +1,57 @@
+class Solution {
+public:
+    bool static comp(string &s1, string &s2){
+        int h1 = stoi(s1.substr(0,2));
+        int m1 = stoi(s1.substr(2,2));
+        
+        int h2 = stoi(s2.substr(0,2));
+        int m2 = stoi(s2.substr(2,2));
+        
+        if(h1 == h2) return m1 < m2;
+        return h1<h2;
+    }
+    vector<string> findHighAccessEmployees(vector<vector<string>>& at) {
+        int n = at.size();
+        
+        map<string,vector<string>>t;
+        
+        for(auto v : at){
+            string name = v[0];
+            string time = v[1];
+            t[name].push_back(time);
+        }
+        
+        vector<string>ans;
+        
+        for(auto i : t){
+            string name = i.first;
+            vector<string>&v = i.second;
+            sort(v.begin(),v.end(),comp);
+            
+            for(auto x : v) cout<<x<<" "; cout<<endl;
+            
+            int m = v.size();
+            
+            map<string,int>mp;
+            
+            for(int i=0; i<m; i++){
+                string s1 = v[i];
+                int h1 = stoi(s1.substr(0,2));
+                int m1 = stoi(s1.substr(2,2));
+                int cnt = 1;
+                for(int j=i+1; j<i+3 && j<m; j++){
+                    string s2 = v[j];
+                    int h2 = stoi(s2.substr(0,2));
+                    int m2 = stoi(s2.substr(2,2));
+                    if(h1 == h2) cnt++;
+                    else if(h2-h1 == 1 && m1 > m2) cnt++;
+                }
+                if(cnt == 3){
+                    ans.push_back(name);
+                    break;
+                }
+            }
+        }                 
+        return ans;
+    }
+};
