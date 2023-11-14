@@ -1,0 +1,40 @@
+class Solution {
+public:
+    //Optimal solution - binary search
+
+    bool find(vector<int>& arr, int idx) // function for binary search
+    {
+        int temp=arr[idx]*2;
+        int i=0,j=arr.size()-1;
+
+        while(i<=j)
+        {
+            int mid=i+(j-i)/2;
+            if(arr[mid]==temp && mid!=idx)
+            {
+                return true;
+            }
+            else if(arr[mid]<temp)
+            {
+                i=mid+1;
+            }
+            else{
+                j=mid-1;
+            }
+        }
+        return false;
+    }
+
+    bool checkIfExist(vector<int>& arr) // main function
+    {
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<arr.size();i++)
+        {
+           if( find(arr,i) )
+           {
+               return  true;
+           }
+        }    
+        return false;
+    }
+};
