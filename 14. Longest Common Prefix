@@ -1,0 +1,75 @@
+/*Solution  1 : With Sorting
+Time complexity: O(n * m * log(n)), where n is the number of strings and m is the average length of the strings. The dominant factor is the sorting operation.
+Space complexity: O(1) since the additional space used is constant, not dependent on the input size.           */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) {
+            return "";
+        }
+
+        // Sort the strings in lexicographical order
+        sort(strs.begin(), strs.end());
+
+        // The first and last strings after sorting
+        string first = strs[0];
+        string last = strs.back();
+
+        // Iterate through characters of the first string
+        int i = 0;
+        while (i < first.length() && i < last.length() && first[i] == last[i]) {
+            i++;
+        }
+
+        // Return the longest common prefix
+        return first.substr(0, i);
+    }
+};
+/*Solution  2 : Without Sorting */
+  #include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class Solution {
+public:
+    // Intuition:
+    // Iterate through characters of the first string, comparing with other strings to find the longest common prefix.
+
+    // Approach:
+    // Initialize the prefix with the first string. Iterate through the rest of the strings, updating the prefix as needed.
+    // Break the loop if the prefix becomes empty (no common prefix). Return the final prefix.
+
+    // Time complexity: O(n * m), where n is the number of strings and m is the average length of the strings.
+    // Space complexity: O(1), as only constant extra space is used.
+
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) {
+            return "";
+        }
+
+        string prefix = strs[0];
+
+        for (int i = 1; i < strs.size(); i++) {
+            int j = 0;
+            while (j < prefix.length() && j < strs[i].length() && prefix[j] == strs[i][j]) {
+                j++;
+            }
+
+            prefix = prefix.substr(0, j);
+
+            if (prefix.empty()) {
+                break; // No need to continue if the prefix is already empty
+            }
+        }
+
+        return prefix;
+    }
+};
