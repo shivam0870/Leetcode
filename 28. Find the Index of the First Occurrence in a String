@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+       int m = haystack.size();
+       int n = needle.size();
+       int cnt = 0;
+       while(cnt+n-1 < m){
+           if(haystack.substr(p,n) == needle)
+           return cnt;
+           cnt++;
+       }
+       return -1;
+    }
+};
