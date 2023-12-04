@@ -1,0 +1,56 @@
+  class Solution {
+ // To remove extra charchters
+bool valid(char ch){
+         if(ch>='a' && ch<='z' ||ch>='A' && ch<='Z'||ch>='0' && ch<='9'){
+             return 1 ; 
+         }
+     return 0;
+ }
+
+ // To convert into lowercase
+ char lower(char ch){
+
+     if(ch>='A' && ch<='Z'){
+        char b = ch - 'A' + 'a';
+        return b;
+     }
+     else return ch;
+    
+ }
+
+ // To check if palindrome
+bool pali(string st){
+    int s=0 ; int e=st.length()-1;
+    while(s<=e){
+        if(st[s]!= st[e]){
+        return 0;
+    }
+    else {
+        s++;
+        e--;
+    }
+    }return 1; }
+
+
+
+  public:
+ bool isPalindrome(string s) {
+     
+
+     // Removing extra space and copying it to another string name temp
+     string temp="";
+     for(int i=0 ; i<s.length() ; i++){
+        if(valid(s[i])){
+             temp.push_back(s[i]);
+        }
+     }
+
+     // coverting all uppercase from temp into lowercase
+     for(int j=0 ; j<temp.length() ; j++){
+         temp[j]=lower(temp[j]);
+     }
+
+     // checking if temp is palindrome or not
+     return pali(temp);
+}
+ };
