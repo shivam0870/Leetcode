@@ -1,0 +1,30 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<int> numsArray;
+        for (int i = 1; i <= n; ++i) {
+            numsArray.push_back(i);
+        }
+
+        vector<string> ansArray;
+
+        for (int i = 0; i < n; ++i) {
+            if (numsArray[i] % 3 == 0 && numsArray[i] % 5 == 0) {
+                ansArray.push_back("FizzBuzz");
+            } else if (numsArray[i] % 3 == 0) {
+                ansArray.push_back("Fizz");
+            } else if (numsArray[i] % 5 == 0) {
+                ansArray.push_back("Buzz");
+            } else {
+                ansArray.push_back(to_string(numsArray[i]));
+            }
+        }
+
+        return ansArray;
+    }
+};
