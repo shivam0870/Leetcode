@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int totalSum = n * (n + 1) / 2;  // Sum of first n numbers
+        int arraySum = 0;
+        
+        // Calculate the sum of the array elements
+        for (int num : nums) {
+            arraySum += num;
+        }
+        
+        // The missing number is the difference between the expected total sum and the actual sum of the array
+        return totalSum - arraySum;
+    }
+};
