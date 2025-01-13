@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            digits[i]++; // Add 1 to the current digit
+            if (digits[i] < 10) {
+                return digits; // If no carry, return immediately
+            }
+            digits[i] = 0; // If carry, set to 0 and continue
+        }
+        // If we exit the loop, all digits were 9
+        digits.insert(digits.begin(), 1); // Prepend 1 to handle carry
+        return digits;
+    }
+};
