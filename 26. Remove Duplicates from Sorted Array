@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.empty()) return 0; // Edge case for empty array
+        
+        int k = 1; // Pointer for the unique position
+        
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] != nums[i - 1]) { // Compare with the previous element
+                nums[k] = nums[i];       // Place the unique element at position k
+                k++;                     // Move k forward
+            }
+        }
+        
+        return k; // k is the count of unique elements
+    }
+};
