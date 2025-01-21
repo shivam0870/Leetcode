@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int binarySearch(const vector<int>& vec, int target) {
+        int left = 0, right = vec.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (vec[mid] == target)
+                return mid;
+            else if (vec[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        return -1;
+    }
+
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<int> ans;
+        for (int i = 1; i <= nums.size(); i++) {
+            if (binarySearch(nums, i) == -1)
+                ans.push_back(i);
+        }
+        return ans;
+    }
+};
