@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // For max function
+using namespace std;
+
+int main() {
+    vector<int> nums = {-10, 20, 15, -30, 40, 25};
+    int maxi = -99999; // Initialize maxi with a very small value
+
+    // Find the maximum value in the array
+    for (int i = 0; i < nums.size(); i++) {
+        maxi = max(maxi, nums[i]); // Update maxi with the maximum of current maxi and nums[i]
+    }
+
+    cout << "The maximum number is: " << maxi << endl;
+    return 0;
+}
