@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        int rep = nums.size()/2;
+        unordered_map<int,int> mpp;
+        for(auto num : nums) {
+            mpp[num]++;
+        }
+        // bool found = true;
+        int ans = 0;
+        // for(auto it : mpp){
+        //     if(it.second == rep)
+        //     ans = it.first;
+        //     found = false;
+        //     break;
+        // }
+
+        for(auto it : mpp){
+            if(it.second > 1){
+               ans = it.first;
+               break;
+            }
+        }
+        return ans;
+    }
+};
