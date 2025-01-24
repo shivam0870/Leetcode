@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        vector<int> ans;
+        int len = nums.size();
+        unordered_map<int, int> mpp;
+        
+        for (auto num : nums) {
+            mpp[num]++;
+        }
+        
+        int duplicate = 0, missing = 0;
+        for (int i = 1; i <= len; ++i) {
+            if (mpp[i] == 2) {
+                duplicate = i;
+            } else if (mpp[i] == 0) {
+                missing = i;
+            }
+        }
+        
+        return {duplicate, missing};
+    }
+};
