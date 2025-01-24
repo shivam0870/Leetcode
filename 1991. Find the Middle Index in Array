@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int findMiddleIndex(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<int> Lsum(n, 0);
+        vector<int> Rsum(n, 0);
+        int ans = n - 1;
+        bool found = false;
+
+        for (int i = 1; i < n; i++) {
+            Lsum[i] = Lsum[i - 1] + nums[i - 1];
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            Rsum[i] = Rsum[i + 1] + nums[i + 1];
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (Lsum[i] == Rsum[i]) {
+                ans = min(ans, i);
+                found = true;
+            }
+        }
+        if (found) {
+            return ans;
+        }
+        return -1;
+    }
+};
